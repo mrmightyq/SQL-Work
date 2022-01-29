@@ -1,5 +1,5 @@
 # SQL-Work
-Solved coding solutions to be added 
+Solved coding solutions to be added for various SQL problems on the below sites:
 
 https://sqlpad.io/playground/
 
