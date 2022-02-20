@@ -1,0 +1,13 @@
+with counts as (SELECT EXTRACT(YEAR from payment_ts) as year, EXTRACT(MONTH from payment_ts) as month,
+sum(amount), customer_id
+FROM payment
+group by year, month,customer_id
+order by customer_id)
+
+select year, month, count(*)
+from counts 
+where sum >= 20
+group by year, month
+order by month asc
+;
+
