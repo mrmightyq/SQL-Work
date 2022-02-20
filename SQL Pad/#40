@@ -1,0 +1,14 @@
+#40
+with movies as (SELECT film_id, count(*) as count
+FROM inventory as a 
+join rental as b on a.inventory_id=b.inventory_id
+where rental_ts between '2020-06-01' and '2020-06-30'
+group by film_id)
+
+select a.film_id, a.title
+from film as a
+join movies as c on a.film_id=c.film_id
+order by c.count desc
+limit 2 
+;
+
