@@ -1,0 +1,16 @@
+#54
+with temp as (select customer_id, sum(amount) as spend
+FROM payment
+group by customer_id)
+
+select
+      case when spend >= 0 and spend <= 100    then 'low'
+           when spend > 100 and spend <= 150   then 'med'
+           when spend > 150  then 'high'
+           
+      end CustomerGroup,
+      count(*) as TotalCount
+   from
+      temp
+   group by 1
+
