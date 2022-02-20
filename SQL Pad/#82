@@ -1,0 +1,8 @@
+#82 
+SELECT query, count(*)
+FROM search
+where date = '2021-01-01'
+group by query
+order by count desc
+LIMIT 5;
+
