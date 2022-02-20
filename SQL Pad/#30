@@ -1,0 +1,7 @@
+#30 
+select count(*) from customer
+where customer_id not in
+(select a.customer_id from customer as a inner join rental as b 
+ on a.customer_id = b.customer_id
+where b.rental_ts between '2020-05-01' and  '2020-05-31')
+
