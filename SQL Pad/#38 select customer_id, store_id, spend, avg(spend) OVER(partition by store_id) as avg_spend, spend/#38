@@ -1,9 +1,0 @@
-#38
-select customer_id, store_id, spend,
-avg(spend) OVER(partition by store_id) as avg_spend,
-spend/(avg(spend) OVER(partition by store_id)) as spend_ratio
-from dat as cls
-where customer_id in (1,100,101,200,2001,300,301,400,401,500)
-order by spend_ratio desc
-;
-
