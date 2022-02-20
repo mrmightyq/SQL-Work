@@ -1,0 +1,13 @@
+#28
+with actors as (SELECT film_id, count(*) as act
+FROM film_actor
+group by film_id
+order by act desc)
+
+select a.title, b.act
+from film as a
+join actors as b on a.film_id=b.film_id
+offset 1
+limit 2
+;
+
