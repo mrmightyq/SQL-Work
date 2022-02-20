@@ -1,0 +1,12 @@
+#62 
+with tab as(SELECT a.film_id, a.title, a.length, c.name,
+ROW_NUMBER() OVER(Partition BY c.name order by a.length asc) AS row
+FROM film as a
+join film_category as b on a.film_id=b.film_id
+join category as c on b.category_id=c.category_id)
+
+select *
+from tab 
+where row = 1
+;
+
