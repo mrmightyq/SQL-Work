@@ -1,0 +1,25 @@
+# 43
+with temp as(SELECT a.customer_id, count(distinct(a.customer_id)) as count
+FROM rental as a 
+join customer as b on a.customer_id=b.customer_id
+where a.rental_ts between '2020-5-01' and '2020-06-01'
+group by a.customer_id),
+
+
+temp2 as (select
+  a.customer_id, 
+  CASE
+    WHEN EXISTS (select *
+                 from temp as b
+                 where a.customer_id = b.customer_id)
+    THEN 'rent'
+    ELSE 'never-rented'
+  END as status
+from
+  customer a)
+
+select status, count(*)
+from temp2
+group by status
+
+
