@@ -1,0 +1,22 @@
+•	Write a query to return the top searched term in the US and UK on new year's day (2021-01-01), separately
+•	The order of your results doesn't matter.
+•	Rank them based on search volume.
+Table: search sample data
+________________________________________
+  col_name| col_type
+----------+------------
+country   | varchar(2)
+date      | date
+user_id   | integer
+search_id | integer
+query     | text
+
+with top as (SELECT country, query, Count(*) as count 
+FROM search
+where date='2021-01-01' and country in ('US','UK')
+group by country, query
+order by count desc
+LIMIT 2)
+
+select country, query 
+from top;
