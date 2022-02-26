@@ -1,0 +1,8 @@
+77. From the following table, write a SQL query to find those departments where no employee works. Return department ID.
+ 
+SELECT b.dep_id,
+       count(a.dep_id)
+FROM department b
+LEFT OUTER JOIN employees a ON a.dep_id=b.dep_id
+GROUP BY b.dep_id
+HAVING count(a.dep_id) <1;
