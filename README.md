@@ -9,3 +9,5 @@ https://leetcode.com/problems/rank-scores/submissions/
 
 
 https://sqlpad.io/tutorial/sql-window-functions
+
+https://www.w3resource.com/sql-exercises/employee-database-exercise/subqueries-exercises-on-employee-database.php#SQLEDITOR
