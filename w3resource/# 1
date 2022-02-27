@@ -1,0 +1,7 @@
+1.	From the following table, write a SQL query to find the managers. Return complete information about the managers.
+SELECT *
+FROM employees
+WHERE emp_id IN
+    (SELECT manager_id
+     FROM employees);
+ 
