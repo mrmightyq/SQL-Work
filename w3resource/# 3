@@ -1,0 +1,22 @@
+3. From the following table, write a SQL query to find those employees who work as 'MANAGERS' and 'ANALYST' and working in ‘SYDNEY’ or ‘PERTH’ with an experience more than 
+5 years without receiving the commission. Sort the result-set in ascending order by department location. Return employee ID, employee name, salary, and department name. 
+
+
+
+SELECT e.emp_id,
+       e.emp_name,
+       e.salary,
+       d.dep_name
+FROM employees e,
+     department d
+WHERE d.dep_location IN ('SYDNEY',
+                         'PERTH')
+  AND e.dep_id = d.dep_id
+  AND e.emp_id IN
+    (SELECT e.emp_id
+     FROM employees e
+     WHERE e.job_name IN ('MANAGER',
+                          'ANALYST')
+       AND (DATE_PART('year', CURRENT_DATE)-DATE_PART('year', hire_date))> 5
+       AND e.commission IS NULL)
+ORDER BY d.dep_location ASC;
