@@ -1,0 +1,9 @@
+2. From the following table, write a SQL query to compute the experience of all the managers. Return employee ID, employee name, job name, joining date, and experience. 
+
+select emp_id, emp_name, job_name, hire_date, (DATE_PART('year', CURRENT_DATE)-DATE_PART('year', hire_date)) as "Experience"
+from employees
+WHERE emp_id IN
+    (SELECT manager_id
+     FROM employees)
+order by (DATE_PART('year', CURRENT_DATE)-DATE_PART('year', hire_date)) desc
+;
