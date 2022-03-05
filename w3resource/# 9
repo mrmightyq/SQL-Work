@@ -1,0 +1,10 @@
+# 9. From the following table, write a SQL query to find those employees who are senior to ADELYN. Return complete information about the employees.
+
+
+
+
+select * from employees 
+where hire_date <
+(select hire_date from employees
+where emp_name = 'ADELYN')
+;
