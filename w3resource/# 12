@@ -1,0 +1,11 @@
+# 12. From the following table, write a SQL query to find those employees whose designation are the same as the designation of MARKER or salary is more than the salary of ADELYN. Return complete information about the employees.
+
+
+select * from employees 
+where job_name =
+(select job_name from employees 
+where emp_name = 'MARKER') 
+OR
+salary > (select salary from employees
+where emp_name = 'ADELYN')
+;
