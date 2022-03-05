@@ -1,0 +1,8 @@
+# 8. From the following table, write a SQL query to find those employees who work as same designation of FRANK. Return complete information about the employees.
+
+
+select * from employees
+where job_name = 
+(Select job_name from employees 
+where emp_name ='FRANK')
+;
