@@ -1,0 +1,11 @@
+SELECT *
+FROM employees a,
+     salary_grade b
+WHERE a.salary BETWEEN b.min_sal AND b.max_sal
+  AND b.grade IN (4,
+                  5)
+  AND a.emp_id IN
+    (SELECT a.emp_id
+     FROM employees a
+     WHERE a.job_name IN ('MANAGER',
+                          'ANALYST'));
