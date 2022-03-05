@@ -1,0 +1,11 @@
+# 10. From the following table, write a SQL query to find those employees of department ID 2001 and whose designation is same as of the designation of department ID 1001. Return complete information about the employees.
+
+
+
+select * from employees as a, department as b
+where a.dep_id = 2001 and a.dep_id=b.dep_id
+and job_name in
+(select a.job_name from employees as a,
+department as b 
+where a.dep_id=b.dep_id and b.dep_id = 1001)
+;
