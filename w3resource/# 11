@@ -1,0 +1,10 @@
+# 11. From the following table, write a SQL query to find those employees whose salary is the same as the salary of FRANK or SANDRINE. Sort the result-set in descending order by salary. Return complete information about the employees.
+
+
+select * from employees
+where salary in
+(select salary from employees as a
+where emp_name in ('FRANK','BLAZE')
+AND employees.emp_id <> a.emp_id)
+order by salary desc
+;
