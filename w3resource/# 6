@@ -1,3 +1,4 @@
+#  From the following table, write a SQL query to find those employees of grade 4 or 5 and who work as ANALYST or MANAGER. Return complete information about the employees.
 SELECT *
 FROM employees a,
      salary_grade b
