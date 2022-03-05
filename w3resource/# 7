@@ -1,0 +1,6 @@
+SELECT *
+FROM employees
+WHERE salary >
+    (SELECT salary
+     FROM employees
+     WHERE emp_name = 'JONAS');
