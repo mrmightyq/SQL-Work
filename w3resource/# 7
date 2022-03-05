@@ -1,3 +1,4 @@
+# From the following table, write a SQL query to find those employees whose salary is more than the salary of JONAS. Return complete information about the employees.
 SELECT *
 FROM employees
 WHERE salary >
