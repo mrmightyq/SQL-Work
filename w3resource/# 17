@@ -1,0 +1,10 @@
+#17. From the following table, write a SQL query to list any job of department ID 1001 which are not found in department ID 2001. Return job name.
+
+
+SELECT e.job_name
+FROM employees e
+WHERE e.dep_id = 1001
+  AND e.job_name NOT IN
+    (SELECT job_name
+     FROM employees
+     WHERE dep_id =2001);
