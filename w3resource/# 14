@@ -1,0 +1,13 @@
+# 14. From the following table, write a SQL query to find those employees who are senior to BLAZE and working at PERTH or BRISBANE. Return complete information about the employees.
+
+
+SELECT *
+FROM employees e,
+     department d
+WHERE d.dep_location IN ('PERTH',
+                         'BRISBANE')
+  AND e.dep_id = d.dep_id
+  AND e.hire_date <
+    (SELECT e.hire_date
+     FROM employees e
+     WHERE e.emp_name = 'BLAZE') ;
