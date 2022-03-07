@@ -1,0 +1,12 @@
+# 20. From the following tables, write a SQL query to find the employees of grade 3 who joined recently and location at PERTH. Return employee ID, employee name, job name, hire date, and salary.
+
+SELECT e.emp_id, e.emp_name, e.job_name, e.hire_date,e.salary
+FROM employees e,
+     department d
+WHERE d.dep_location='PERTH'
+  AND hire_date IN
+    (SELECT max(hire_date)
+     FROM employees e,
+          salary_grade s
+     WHERE salary BETWEEN min_sal AND max_sal
+       AND grade=3);
