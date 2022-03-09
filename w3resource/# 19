@@ -1,0 +1,12 @@
+# 19. From the following table, write a SQL query to find the highest paid employees in the department MARKETING. Return complete information about the employees.
+
+
+SELECT *
+FROM employees
+WHERE salary IN
+    (SELECT max(salary)
+     FROM employees
+     WHERE dep_id IN
+         (SELECT d.dep_id
+          FROM department d
+          WHERE d.dep_name = 'MARKETING'));
