@@ -1,0 +1,8 @@
+18. From the following table, write a SQL query to find the highest paid employee. Return complete information about the employees.
+
+SELECT *
+FROM employees
+WHERE salary IN
+    (SELECT max(salary)
+     FROM employees)
+ ;
