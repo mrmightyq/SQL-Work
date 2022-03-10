@@ -1,0 +1,13 @@
+# 32. From the following table, write a SQL query to find those employees who are working as a manager. Return employee name, job name, department name, and location.
+
+
+SELECT e.emp_name,
+       e.job_name,
+       d.dep_name,
+       d.dep_location
+FROM employees e,
+     department d
+WHERE e.dep_id = d.dep_id
+  AND e.emp_id IN
+    (SELECT manager_id
+     FROM employees) ;
