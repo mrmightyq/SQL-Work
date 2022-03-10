@@ -1,0 +1,10 @@
+# 27. From the following table, write a SQL query to compute the total salary of employees of grade 3. Return total salary.
+
+SELECT sum(salary)
+FROM employees
+WHERE emp_id IN
+    (SELECT emp_id
+     FROM employees e,
+          salary_grade s
+     WHERE e.salary BETWEEN s.min_sal AND s.max_sal
+       AND s.grade = 3);
