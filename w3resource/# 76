@@ -1,0 +1,7 @@
+# 76. From the following table, write a SQL query to count the number of employees who work as a manager. Return number of employees.
+
+select count(*)
+from employees 
+where emp_id IN (select manager_id
+from employees)
+;
